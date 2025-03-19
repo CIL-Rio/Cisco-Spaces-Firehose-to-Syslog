@@ -21,15 +21,15 @@ Before you begin, ensure you have:
 
 The application is configured through environment variables in docker-compose.yml:
 
-- `X_API_KEY`: Your DNA Spaces API key
-- `SYSLOG_HOST`: Syslog server hostname (default: openobserve)
-- `SYSLOG_PORT`: Syslog server port (default: 5514)
+- `API_KEY`: Your DNA Spaces API key
+- `SYSLOG_HOST`: Syslog server hostname 
+- `SYSLOG_PORT`: Syslog server port
 - `ENABLE_FILTERING`: Enable/disable event filtering (true/false)
 
 ## Running the Application
 
 1. Clone the repository
-2. Update the X_API_KEY in docker-compose.yml
+2. Update the API_KEY in docker-compose.yml
 3. Start the application:
 
 ```bash
