@@ -1,0 +1,37 @@
+version: '3'
+services:
+  firehose2syslog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - X_API_KEY=<Cisco Space API Key>
+      - SYSLOG_HOST=<Syslog Server IP>
+      - SYSLOG_PORT=<Syslog Server Port>
+      - ENABLE_FILTERING=false
+    restart: unless-stopped
+    stdin_open: true  # Keep stdin open even if not attached
+    tty: true  # Allocate a pseudo-TTY
+    networks:
+      - logging-network
+
+  #openobserve:
+  #  image: public.ecr.aws/zinclabs/openobserve:latest
+  #  environment:
+  #    - ZO_ROOT_USER_EMAIL=root@example.com
+  #    - ZO_ROOT_USER_PASSWORD=Complexpass#123
+  #    - ZO_DATA_DIR=/data
+  #  ports:
+  #    - "5080:5080"
+  #    - "5514:5514/udp"
+  #  volumes:
+  #    - openobserve_data:/data
+  #  networks:
+  #    - logging-network
+
+#volumes:
+#  openobserve_data:
+
+networks:
+  logging-network:
+    driver: bridge
